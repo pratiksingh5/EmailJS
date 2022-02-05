@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+    <script src="app.js"></script>
+    <script
+    src="https://code.jquery.com/jquery-2.2.4.min.js"
+    integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+    crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    
+    <script type="text/javascript">
+    (function() {
+    emailjs.init("user_jces3CfyPdUaAh4ZPhD9I");
+    })();
+
+    
+    function sendMail(params){
+    var tempParams = {
+        from_name:document.getElementById('name').value,
+        message : document.getElementById('message').value
+    }
+
+    emailjs.send('service_nya1bbu','template_vbtia8s',tempParams)
+    .then(function(){
+        alert('success')
+    })
+    .catch(function(err){
+        alert('Error')
+    })
+}
+
+    </script>
+  
+</head>
+<body>
+    <input type="text" id="name" placeholder="name"><br>
+    <input type="text" id="message" placeholder="message"> <br>
+    <button id="send" onclick="sendMail()">Send</button>
+    
+</body>
+</html>
